@@ -207,27 +207,6 @@ Corre_matrix_r = pd.read_csv("CorrRStudio.csv")
 
 st.dataframe(Corre_matrix_r, hide_index = True)
 
-
-st.line_chart(df, x='Data',y="Acidentes", use_container_width=True)
-st.line_chart(df, x='Data',y="Precipitacao", use_container_width=True)
-st.line_chart(df, x='Data',y="PressaoAtm", use_container_width=True)
-st.line_chart(df, x='Data',y="PressaoAtmMin", use_container_width=True)
-st.line_chart(df, x='Data',y="RadiacaoGlobal", use_container_width=True)
-st.line_chart(df, x='Data',y="TemperaturaBulboSeco", use_container_width=True)
-st.line_chart(df, x='Data',y="TemperaturaPontoOrvalho", use_container_width=True)
-st.line_chart(df, x='Data',y="TemperaturaMax", use_container_width=True)
-st.line_chart(df, x='Data',y="TemperaturaMin", use_container_width=True)
-st.line_chart(df, x='Data',y="TemperaturaMaxOrvalho", use_container_width=True)
-st.line_chart(df, x='Data',y="TemperaturaMinOrvalho", use_container_width=True)
-st.line_chart(df, x='Data',y="UmidadeRelMax", use_container_width=True)
-st.line_chart(df, x='Data',y="UmidadeRelMin", use_container_width=True)
-st.line_chart(df, x='Data',y="UmidadeRel", use_container_width=True)
-st.line_chart(df, x='Data',y="VentoDirecao", use_container_width=True)
-st.line_chart(df, x='Data',y="VentoRajada", use_container_width=True)
-st.line_chart(df, x='Data',y="VentoVelocidade", use_container_width=True)
-st.line_chart(df, x='Data',y=["Precipitacao","TemperaturaMax"], use_container_width=True)
-st.line_chart(df['Precipitacao'], use_container_width=True)
-
 fig = px.box(df, y="Precipitacao")
 st.plotly_chart(fig, use_container_width=True)
 
