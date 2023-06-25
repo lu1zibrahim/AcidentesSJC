@@ -77,7 +77,6 @@ st.markdown("- Como todas as variáveis, contém sub-variáveis de Máximas e M�
 st.markdown("- Iremos considerar dados de 2010 até os mais recentes, pois é o período que as fontes tem em comum")
 st.markdown("Com isso, transformando os dados por hora, em dados pelo dia, podendo fazer as relações com o número de acidente do mesmo")
 st.markdown("Foi criado um Dataset, utilizando as informações meteorológicas, o número de acidentes por dia, qual é o dia da semana, e se houve feriado")
-st.markdown("Primeiro iremos avaliar as variáveis: Precipitação; Pressão Atmosférica; Temperatura e Umidade")
 st.divider()
 
 df_old = pd.read_csv("2010-2021.csv")
