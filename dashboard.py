@@ -7,8 +7,8 @@ import plotly.express as px
 import altair as alt
 from PIL import Image
 
-st.title('Dashboard de Ciencia de Dados')
-st.header('Condições Climaticas afetam o número de acidentes?')
+st.title('Dashboard de Ciência de Dados')
+st.header('Condições Climáticas afetam o número de acidentes?')
 st.subheader('Trabalho para Ciência de Dados I - Mestrado Profissional em Inovação Tecnológica')
 logo_unifesp = Image.open('Unifesp_logo.png')
 st.image(logo_unifesp)
@@ -41,7 +41,7 @@ st.divider()
 st.title("Extração de Dados")
 st.markdown("Dois tipos de dados são necessários, dados meteorológicos e dados de acidêntes, ambos os dados foram extraídos de fontes públicas")
 st.markdown("Dados Meteorológicos, extraídos do portal INMET (Instituto Nacional de Meteorologia): https://portal.inmet.gov.br/dadoshistoricos")
-st.markdown("Dados de acidêntes em rodovías, extraídos do portal ANTT (Agência Nacional de Transportes Terrestres): https://dados.antt.gov.br/dataset/acidentes-rodovias")
+st.markdown("Dados de acidentes em rodovias, extraídos do portal ANTT (Agência Nacional de Transportes Terrestres): https://dados.antt.gov.br/dataset/acidentes-rodovias")
 st.divider()
 
 st.title("Análise Exploratória")
@@ -64,11 +64,11 @@ dados_meteorologicos_fonte = {"Fonte":["Data","Horario","PRECIPITAÇÃO TOTAL. H
                                                 "Quantitativo Contínuo","Quantitativo Contínuo","Quantitativo Contínuo"]}
 dados_meteorologicos = pd.DataFrame(data=dados_meteorologicos_fonte)
 st.dataframe(dados_meteorologicos, hide_index = True)
-st.markdown("Para os dados meteorilóigicos, iremos utilizar todos, pois não sabemos quais ou se algum interfere no número de acidentes")
-st.markdown("Porém os dados de acidenctes na rodovia, iremos utilizar apenas o número de acidentes por dia, pois não estamos considerando a gravidade do acidente por exemplo")
+st.markdown("Para os dados meteorológicos, iremos utilizar todos, pois não sabemos quais ou se algum interfere no número de acidentes")
+st.markdown("Porém os dados de acidentes na rodovia, iremos utilizar apenas o número de acidentes por dia, pois não estamos considerando a gravidade do acidente por exemplo")
 st.markdown("Como os dados meteorológicos estão com hora de medição, iremos criar um novo Dataset, com os dados resumindo pelo dia, com algumas considerações")
 st.markdown("- Precipitação será o somatório do dia")
-st.markdown("- Como todas as varíaveis, contém sub-variáveis de Máximas e Mínimas, iremos considerar os limites do dia")
+st.markdown("- Como todas as variáveis, contém sub-variáveis de Máximas e Mínimas, iremos considerar os limites do dia")
 st.markdown("- Iremos considerar dados de 2010 até os mais recentes, pois é o período que as fontes tem em comum")
 st.markdown("Com isso, transformando os dados por hora, em dados pelo dia, podendo fazer as relações com o número de acidente do mesmo")
 st.markdown("Foi criado um Dataset, utilizando as informações meteorológicas, o número de acidentes por dia, qual é o dia da semana, e se houve feriado")
@@ -117,13 +117,13 @@ st.markdown("""- A Umidade Relativa do Ar foi registrada em -9,999%, o menor nú
                     é um número impossível de ser atingido na física tradicional e em condições naturais.""")
 
 st.header("Qualidade dos dados")
-st.markdown("Com as informações acima, podemos perceber que a qualidade dos dados públicos, devem ser sempre checadas e análisadas antes de chegar a qualquer afirmação")
-st.markdown("""Foi feita uma limpeza dos dados, pois foi registrado que em certos momentos os dados registravam -9.999, para quaisquer valores e também valores vazios (não zero, vazios).
+st.markdown("Com as informações acima, podemos perceber que a qualidade dos dados públicos, devem ser sempre checadas e analisadas antes de chegar a qualquer afirmação")
+st.markdown("""Foi feita uma limpeza dos dados, pois foi registrado que em certos momentos os dados registravam -9.999, para quaisquer valores e valores vazios (não zero, vazios).
                     Após a limpeza dos dados constatamos que:""")
 st.markdown("""- 47.86% dos dados, possuem informação falsa""")
 st.markdown("""- Não há registros válidos do ano de 2014""")
 st.markdown("""- Apenas 15.62% dos dados de 2021 podem ser utilizados""")
-st.markdown("""Nós iremos utilizar os dados após a limpeza, porém caso os mesmos sejam utilizados para futuros projetos em aplicações reais
+st.markdown("""Nós iremos utilizar os dados após a limpeza, porém caso eles sejam utilizados para futuros projetos em aplicações reais
                 é necessário a revisar e averiguar a qualidade dos dados novamente""")
 st.divider()
 
@@ -168,7 +168,7 @@ st.altair_chart(chart3_2 | chart4_2)
 st.markdown("Como podemos verificar, agora os valores fazem mais sentido com a realidade")
 
 st.title("TODO")
-st.markdown("Criar pares de gráficos para análises de Max e Min das varíaveis, depois fazer as correlações")
+st.markdown("Criar pares de gráficos para análises de Max e Min das variáveis, depois fazer as correlações")
 
 Corre_matrix_r = pd.read_csv("CorrRStudio.csv")
 
@@ -207,15 +207,15 @@ Corre_matrix_r = pd.read_csv("CorrRStudio.csv")
 
 st.dataframe(Corre_matrix_r, hide_index = True)
 
-fig = px.box(df, y="Precipitacao")
+fig = px.box(df, y="Precipitação")
 st.plotly_chart(fig, use_container_width=True)
 
-st.header('Relação entre Acidentes e Precipitacao')
-dfPre = pd.DataFrame(df[['Acidentes',"Precipitacao"]])
+st.header('Relação entre Acidentes e Precipitação')
+dfPre = pd.DataFrame(df[['Acidentes',"Precipitação"]])
 figPre = px.scatter_matrix(dfPre)
 st.plotly_chart(figPre, use_container_width=True)
 
-st.header('Relação entre Acidentes e Pressao e Radiação')
+st.header('Relação entre Acidentes e Pressão e Radiação')
 dfPressao = pd.DataFrame(df[['Acidentes',"PressaoAtm","PressaoAtmMax","PressaoAtmMin", "RadiacaoGlobal"]])
 figPressao = px.scatter_matrix(dfPressao)
 st.plotly_chart(figPressao, use_container_width=True)
