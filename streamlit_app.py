@@ -559,7 +559,7 @@ st.markdown("- A Umidade Relativa Mínima Possui 6,55% de Importância")
 st.markdown("Podemos ver um pouco mais no gráfico abaixo:")
 
 vertex = Image.open('imagem_VertexAI.png')
-st.image(vertex, caption="CorrelacaodePearson_Total")
+st.image(vertex, caption="Imagem do Vertex")
 
 st.title("Conclusões")
 st.markdown("Com relação a primeira parte da análise, conseguimos chegar a conclusão com os dados apresentados que:")
