@@ -27,9 +27,9 @@ st.divider()
 
 st.title("Objetivo:")
 st.markdown("- Identificar se há relação do alto índice de acidentes com as condições climáticas (Precipitação, Pressão Atmosférica (Min-Max), Temperatura (Min-Max), Umidade (Min-Max) e Vento.")
+st.markdown("- Realizar análise exploratória dos dados, bem como verificar sua integridade, qualidade e criação de dashboard.")
 st.markdown("- Verificar quais as condições climáticas que mais impactam nos acidentes.")
-st.markdown("- Caso alguma variável seja expressiva, criar uma aplicação para alertar motoristas que há um aumento na chance de acidente.")
-st.markdown("- Se houver tempo hábil, criar uma aplicação para predizer se haverá acidentes nas pistas em um determinado dia.")
+st.markdown("- Se possível, criar uma aplicação para alertar motoristas que há aumento nas chances de acidentes e predizer se haverá acidentes nas pistas em um determinado dia.")
 st.divider()
 
 st.title("Metodologia:")
@@ -41,6 +41,7 @@ st.markdown("- SQL/MySQL - Manipulação de Dados")
 st.markdown("- R Studio - Análise dos dados")
 st.markdown("- Streamlit - Construção do Dashboard")
 st.markdown("- Python - Construção do Dashboard e Visualização dos Dados")
+st.markdown("- Python - Google Cloud Platform(GCP) - Vertex A.I. AutoML")
 st.divider()
 
 st.title("Extração de Dados")
@@ -107,7 +108,7 @@ for(j in 2:19){
 st.code(codigo_r_inicial, language='r')
 st.dataframe(df_initial_ks_test, hide_index = True)
 
-st.markdown("Como pode ter sido observado, a hipótese nula do teste KS pode ser rejeitado com os dados apresentados, mostrando que não seguem distribuições Normal")
+st.markdown("Como pode ter sido observado, a hipótese nula do teste KS (Para significância de 5%) pode ser rejeitado com os dados apresentados, mostrando que não seguem distribuições Normal")
 
 st.subheader("Histogramas")
 st.markdown("Como a maioria dos dados são Quantitativos Contínuos, iremos criar Histogramas, para verificar a representação dos dados")
@@ -258,7 +259,7 @@ st.code(codigo_r_final, language='r')
 df_final_ks_test = pd.read_csv("Final_KSTest.csv")
 st.dataframe(df_final_ks_test, hide_index = True)
 
-st.markdown("Como pode ter sido observado e esperado, a hipótese nula do teste KS pode ser rejeitado com os dados apresentados, iremos analisar melhor observando os Histogramas")
+st.markdown("Como pode ter sido observado e esperado, a hipótese nula do teste KS para 5% de significância pode ser rejeitado com os dados apresentados, iremos analisar melhor observando os Histogramas")
 
 st.subheader("Histogramas")
 
@@ -562,9 +563,9 @@ st.image(vertex, caption="Imagem do Vertex")
 
 st.title("Conclusões")
 st.markdown("Com relação a primeira parte da análise, conseguimos chegar a conclusão com os dados apresentados que:")
-st.markdown("- As condições climáticas não possuem tanto impacto no número de acidêntes")
+st.markdown("- As condições climáticas não possuem tanto impacto no número de acidentes")
 st.markdown("- Os dias da semana, possui uma correlação com o número de Acidentes")
-st.markdown("- Os dados disponíveis, encontra-se com muitas informações faltas, chegando a quase 50%, isso impacta diretamente na qualidade da pesquisa")
+st.markdown("- Os dados disponíveis, encontra-se com muitas informações faltantes, chegando a quase 50%, isso impacta diretamente na qualidade da pesquisa")
 st.markdown("- Como são dados históricos, existe a possibilidade dos dados não poderem ser recuperados")
 st.markdown("- Caso, a partir deste trabalho, há o interesse de continua-lo, é necessário melhor base de dados")
 st.markdown("Agora em relação ao uso de Machine Learning podemos visualizar:")
