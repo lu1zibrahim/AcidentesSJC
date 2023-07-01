@@ -573,3 +573,18 @@ st.markdown("""- A Data é um fator impactante no número de acidentes. Feriados
 st.markdown("Tanto o modelo de M.L. quanto o feito neste trabalho, possuem resultados semelhantes na atribuição de correlação das variáveis")
 st.markdown("""Com isso concluimos o objetivo deste Dashboard, mostramos que com os dados atuais não é possível verificar um alta correlação entre condições climáticas e acidentes, porém, podemos identificar
 Uma relação entre o número de acidentes e as datas do ano.""")
+
+
+
+
+st.title("Perfil dos Acidentes")
+
+chuva_vitima = {
+    "Chuva": ["SIM", "NAO","TOTAL"],
+    "SEM VITIMA": [17793,1882,36675],
+    "COM VITIMA": [10005,31557,41562],
+    "TOTAL": [27798,50439,78237]
+}
+
+chuva_vitima_pd = pd.Dataframe(chuva_vitima)
+st.dataframe(chuva_vitima_pd, hide_index = True)
