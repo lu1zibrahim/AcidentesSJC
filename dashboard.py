@@ -7,6 +7,8 @@ import plotly.express as px
 import altair as alt
 from PIL import Image
 
+
+
 st.title('Dashboard de Ciência de Dados')
 st.header('Condições Climáticas afetam o número de acidentes?')
 st.subheader('Trabalho para Ciência de Dados I - Mestrado Profissional em Inovação Tecnológica')
@@ -561,6 +563,311 @@ st.markdown("Podemos ver um pouco mais no gráfico abaixo:")
 vertex = Image.open('imagem_VertexAI.png')
 st.image(vertex, caption="Imagem do Vertex")
 
+
+st.title("Perfil dos Acidentes")
+
+st.header("Se houve chuva no dia do acidente e se houve vitima ou não")
+
+
+col1, col2 = st.columns(2)
+
+
+
+chuva_vitima = {
+    "Chuva": ["SIM", "NAO","TOTAL"],
+    "SEM VITIMA": [17793,18882,36675],
+    "COM VITIMA": [10005,31557,41562],
+    "TOTAL": [27798,50439,78237]
+}
+
+chuva_vitima_pd = pd.DataFrame(chuva_vitima)
+col1.dataframe(chuva_vitima_pd, hide_index = True)
+
+
+chuva_vitima_por = {
+    "Chuva": ["SIM", "NAO","TOTAL"],
+    "SEM VITIMA": ["23%","24%","47%"],
+    "COM VITIMA": ["13%","40%","53%"],
+    "TOTAL": ["36%","64%","100%"]
+}
+
+chuva_vitima_pd_por = pd.DataFrame(chuva_vitima_por)
+col2.dataframe(chuva_vitima_pd_por, hide_index = True)
+
+st.divider()
+
+
+st.header("Relação temperatura máxima do dia e se houve vitima ou não")
+
+col1_temp_max, col2_temp_max = st.columns(2)
+
+temp_maxima = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": [13886,12040,11725,11889,49540],
+    "COM VITIMA": [7140,6945,7009,7793,28887],
+    "TOTAL": [21026,18985,18734,19682,78426],
+}
+
+temp_maxima_pd = pd.DataFrame(temp_maxima)
+col1_temp_max.dataframe(temp_maxima, hide_index = True)
+
+temp_maxima_por = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": ["18%","15%","15%","15%","63%"],
+    "COM VITIMA": ["9%","9%","9%","10%","37%"],
+    "TOTAL": ["27%","24%","24%","25","100%"],
+}
+
+temp_maxima_pd_por = pd.DataFrame(temp_maxima_por)
+col2_temp_max.dataframe(temp_maxima_por, hide_index = True)
+
+
+st.divider()
+
+
+st.header("Relação temperatura minima do dia e se houve vitima ou não")
+
+col1_temp_min, col2_temp_min = st.columns(2)
+
+temp_minima = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": [11991,12121,11963,13455,49530],
+    "COM VITIMA": [6951,7242,6824,7870,28887],
+    "TOTAL": [18942,19363,18787,21325,78417],
+}
+
+temp_minima_pd = pd.DataFrame(temp_minima)
+col1_temp_min.dataframe(temp_minima, hide_index = True)
+
+temp_minima_por = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": ["15%","16%","15%","17%","63%"],
+    "COM VITIMA": ["9%","9%","9%","10%","37%"],
+    "TOTAL": ["24%","25%","24%","27%","100%"],
+}
+
+temp_minima_pd_por = pd.DataFrame(temp_minima_por)
+col2_temp_min.dataframe(temp_minima_por, hide_index = True)
+
+
+st.divider()
+
+
+st.header("Relação Umidade Relativa Máxima do dia e se houve vitima ou não")
+
+col1_umid_max, col2_umid_max = st.columns(2)
+
+umidade_maxima = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": [11567,10916,10370,1677,49530],
+    "COM VITIMA": [7096,6431,5941,9419,28887],
+    "TOTAL": [18663,17347,16311,26096,78417],
+}
+
+umidade_maxima_pd = pd.DataFrame(umidade_maxima)
+col1_umid_max.dataframe(umidade_maxima, hide_index = True)
+
+umidade_maxima_por = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": ["15%","14%","13%","21%","63%"],
+    "COM VITIMA": ["9%","8%","8%","12%","37%"],
+    "TOTAL": ["24%","22%","21%","33%","100%"],
+}
+
+umidade_maxima_pd_por = pd.DataFrame(umidade_maxima_por)
+col2_umid_max.dataframe(umidade_maxima_por, hide_index = True)
+
+
+st.divider()
+
+
+st.header("Relação Umidade Relativa Mínima do dia e se houve vitima ou não")
+
+col1_umid_min, col2_umid_min = st.columns(2)
+
+umidade_minima = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": [11567,10916,10370,1677,49530],
+    "COM VITIMA": [7096,6431,5941,9419,28887],
+    "TOTAL": [18663,17347,16311,26096,78417],
+}
+
+umidade_minima_pd = pd.DataFrame(umidade_minima)
+col1_umid_min.dataframe(umidade_minima, hide_index = True)
+
+umidade_minima_por = { 
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "SEM VITIMA": ["15%","14%","13%","21%","63%"],
+    "COM VITIMA": ["9%","8%","8%","12%","37%"],
+    "TOTAL": ["24%","22%","21%","33%","100%"],
+}
+
+umidade_minima_pd_por = pd.DataFrame(umidade_minima_por)
+col2_umid_min.dataframe(umidade_minima_por, hide_index = True)
+
+
+
+
+st.title("Perfil da gravidade dos feridos em acidentes")
+
+st.header("Gravidade dos ferimentos em dias com ou sem Chuva")
+
+grav_col1, grav_col2 = st.columns(2)
+
+
+
+grav_chuva_vitima = {
+    "Chuva": ["SIM", "NAO","TOTAL"],
+    "LEVE": [8821,17482,26303],
+    "MOD.": [2383,4842,510],
+    "GRAVE": [510,1151,1661],
+    "FATAL": [411,987,1398],
+    "TOTAL": [12125,24462,36587]
+}
+
+grav_chuva_vitima_pd = pd.DataFrame(grav_chuva_vitima)
+grav_col1.dataframe(grav_chuva_vitima_pd, hide_index = True)
+
+grav_chuva_vitima_por = {
+    "Chuva": ["SIM", "NAO","TOTAL"],
+    "LEVE": ["24%","48%","72%"],
+    "MOD.": ["7%","13%","20%"],
+    "GRAVE": ["1%","3%","5%"],
+    "FATAL": ["1%","3%","4%"],
+    "TOTAL": ["33%","67%","100%"]
+}
+
+grav_chuva_vitima_pd_por = pd.DataFrame(grav_chuva_vitima_por)
+grav_col2.dataframe(grav_chuva_vitima_pd_por, hide_index = True)
+
+st.divider()
+
+st.header("Gravidade dos ferimentos em relação a temperatura máxima do dia")
+
+
+grav_col1_temp, grav_col2_temp = st.columns(2)
+
+
+grav_temp = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": [6911,6827,6379,6186,26303],
+    "MOD.": [1945,1781,1743,1756,7225],
+    "GRAVE": [455,389,412,405,1661],
+    "FATAL": [373,364,337,324,1398],
+    "TOTAL": [9684,9361,8871,8671,36587]
+}
+grav_temp_pd = pd.DataFrame(grav_temp)
+grav_col1_temp.dataframe(grav_temp_pd, hide_index = True)
+
+grav_temp_por = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": ["19%","19%","17%","17%","72%"],
+    "MOD.": ["5%","5%","5%","5%","20%"],
+    "GRAVE": ["1%","1%","1%","1%","4%"],
+    "FATAL": ["1%","1%","1%","1%","4%"],
+    "TOTAL": ["26%","26%","24%","24%","100%"]
+}
+
+grav_temp_pd_por = pd.DataFrame(grav_temp_por)
+grav_col2_temp.dataframe(grav_temp_pd_por, hide_index = True)
+
+
+st.header("Gravidade dos ferimentos em relação a temperatura mínima do dia")
+
+
+grav_col1_temp_min, grav_col2_temp_min = st.columns(2)
+
+
+grav_temp_min = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": [6983,6578,6527,6215,26303],
+    "MOD.": [1969,1803,1767,1686,7225],
+    "GRAVE": [392,437,402,430,1661],
+    "FATAL": [349,358,358,333,1398],
+    "TOTAL": [9693,9176,9054,8664,36587]
+}
+grav_temp_min_pd = pd.DataFrame(grav_temp_min)
+grav_col1_temp_min.dataframe(grav_temp_min_pd, hide_index = True)
+
+grav_temp_min_por = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": ["19%","18%","18%","17%","72%"],
+    "MOD.": ["5%","5%","5%","5%","20%"],
+    "GRAVE": ["1%","1%","1%","1%","4%"],
+    "FATAL": ["1%","1%","1%","1%","4%"],
+    "TOTAL": ["26%","25%","25%","24%","100%"]
+}
+
+grav_temp_min_pd_por = pd.DataFrame(grav_temp_min_por)
+grav_col2_temp_min.dataframe(grav_temp_min_pd_por, hide_index = True)
+
+
+st.divider()
+
+st.header("Gravidade dos ferimentos em relação a umidade máxima do dia")
+
+
+grav_col1_umid, grav_col2_umid = st.columns(2)
+
+
+grav_umid = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": [8494,6450,5905,5454,26303],
+    "MOD.": [2397,1789,1537,1502,7225],
+    "GRAVE": [563,402,377,319,1661],
+    "FATAL": [458,330,319,291,1398],
+    "TOTAL": [11912,8971,8138,7566,36587]
+}
+grav_umid_pd = pd.DataFrame(grav_umid)
+grav_col1_umid.dataframe(grav_umid_pd, hide_index = True)
+
+grav_umid_por = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": ["23%","18%","16%","15%","72%"],
+    "MOD.": ["7%","5%","4%","4%","20%"],
+    "GRAVE": ["1%","1%","1%","1%","4%"],
+    "FATAL": ["1%","1%","1%","1%","4%"],
+    "TOTAL": ["33%","25%","22%","20%","100%"]
+}
+
+grav_umid_pd_por = pd.DataFrame(grav_umid_por)
+grav_col2_umid.dataframe(grav_umid_pd_por, hide_index = True)
+
+
+st.divider()
+
+st.header("Gravidade dos ferimentos em relação a umidade mínima do dia")
+
+
+grav_col1_umid_min, grav_col2_umid_min = st.columns(2)
+
+
+grav_umid_min = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": [7228,6127,6655,6293,26303],
+    "MOD.": [1915,1729,1862,1719,7225],
+    "GRAVE": [409,423,412,417,1661],
+    "FATAL": [360,360,335,343,1398],
+    "TOTAL": [9912,8639,9264,8772,36587]
+}
+grav_umid_min_pd = pd.DataFrame(grav_umid_min)
+grav_col1_umid_min.dataframe(grav_umid_min_pd, hide_index = True)
+
+grav_umid_min_por = {
+    "Região": ["MIN","Q1","Q3","MAX","TOTAL"],
+    "LEVE": ["20%","17%","18%","17%","72%"],
+    "MOD.": ["5%","5%","5%","5%","20%"],
+    "GRAVE": ["1%","1%","1%","1%","4%"],
+    "FATAL": ["1%","1%","1%","1%","4%"],
+    "TOTAL": ["27%","24%","25%","24%","100%"]
+}
+
+grav_umid_min_pd_por = pd.DataFrame(grav_umid_min_por)
+grav_col2_umid_min.dataframe(grav_umid_min_pd_por, hide_index = True)
+st.divider()
+
+
+
 st.title("Conclusões")
 st.markdown("Com relação a primeira parte da análise, conseguimos chegar a conclusão com os dados apresentados que:")
 st.markdown("- As condições climáticas não possuem tanto impacto no número de acidentes")
@@ -568,6 +875,10 @@ st.markdown("- Os dias da semana, possui uma correlação com o número de Acide
 st.markdown("- Os dados disponíveis, encontra-se com muitas informações faltantes, chegando a quase 50%, isso impacta diretamente na qualidade da pesquisa")
 st.markdown("- Como são dados históricos, existe a possibilidade dos dados não poderem ser recuperados")
 st.markdown("- Caso, a partir deste trabalho, há o interesse de continua-lo, é necessário melhor base de dados")
+st.markdown("- Quando fomos análisar e criar o perfil dos acidêntes, vimos que aparentemente não possuem relação entre as variáveis climáticas, porém possuem um padrão entre eles.")
+st.markdown("- Pois o perfil dos acidentes, levando em consideração a gravidade dos feridos, seguem o mesmo padrão, de 72% Leves, 20% Moderados, 4% Graves e 4% Fatais")
+st.markdown("- Isso demonstra que para a carga de dados disponíveis, a cada 500 feridos, teremos 360 com ferimentos leves, 100 com ferimentos moderados, 20 com ferimentos graves e 20 com ferimentos fatais.")
+st.markdown("- Para comprar a verificação acima, seria necessário outros conjuntos de dados para futuros estudos.")
 st.markdown("Agora em relação ao uso de Machine Learning podemos visualizar:")
 st.markdown("""- A Data é um fator impactante no número de acidentes. Feriados Nacionais, Feriados Locais, Dias 'Emendados' Férias de Verão, Férias de Inverno, Eventos Periódicos, são alguns fatores que podem impactar""")
 st.markdown("Tanto o modelo de M.L. quanto o feito neste trabalho, possuem resultados semelhantes na atribuição de correlação das variáveis")
