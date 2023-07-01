@@ -566,8 +566,18 @@ st.image(vertex, caption="Imagem do Vertex")
 
 st.title("Perfil dos Acidentes")
 
-st.header("Se houve chuva no dia do acidente e se houve vitima ou não")
+st.markdown("Para traçar melhor a relação entre acidêntes e as condições climáticas, iremos verificar se as condições climáticas, aumento ou não o número de vítimas, ou também afetam na gravidade dos acidêntes")
+st.markdown("Para efetuar essa análise consideramos:")
+st.markdown("- Pela análise anterior verificamos que a Precipitação, Temperatura e Umidade, possuem maior correlação positiva em relação ao número de acidêntes, então iremos abordar essas variáveis")
+st.markdown("- Os dias que possuem precipitação diferente de 0, são dias chuvosos")
+st.markdown("- Como o menor erro nos dados foram verificados nas variáveis Máximas e Mínimas, iremos análisar em ambas separadas")
+st.markdown("Traçamos 4 regiões em relação da posição dos dados em relação aos quartis que verificamos anteriormente:")
+st.markdown("- MIN - Região abaixo de Q1")
+st.markdown("- Q1 - Região Entre Q1 e a Mediana")
+st.markdown("- Q1 - Região Entre Q3 e a Mediana")
+st.markdown("- MAX - Região acima de Q3")
 
+st.header("Se houve chuva no dia do acidente e se houve vitima ou não")
 
 col1, col2 = st.columns(2)
 
@@ -875,10 +885,9 @@ st.markdown("- Os dias da semana, possui uma correlação com o número de Acide
 st.markdown("- Os dados disponíveis, encontra-se com muitas informações faltantes, chegando a quase 50%, isso impacta diretamente na qualidade da pesquisa")
 st.markdown("- Como são dados históricos, existe a possibilidade dos dados não poderem ser recuperados")
 st.markdown("- Caso, a partir deste trabalho, há o interesse de continua-lo, é necessário melhor base de dados")
-st.markdown("- Quando fomos análisar e criar o perfil dos acidêntes, vimos que aparentemente não possuem relação entre as variáveis climáticas, porém possuem um padrão entre eles.")
-st.markdown("- Pois o perfil dos acidentes, levando em consideração a gravidade dos feridos, seguem o mesmo padrão, de 72% Leves, 20% Moderados, 4% Graves e 4% Fatais")
-st.markdown("- Isso demonstra que para a carga de dados disponíveis, a cada 500 feridos, teremos 360 com ferimentos leves, 100 com ferimentos moderados, 20 com ferimentos graves e 20 com ferimentos fatais.")
-st.markdown("- Para comprar a verificação acima, seria necessário outros conjuntos de dados para futuros estudos.")
+st.markdown("- Quando fomos análisar e criar o perfil dos acidêntes, vimos que aparentemente não possuem relação entre as variáveis climáticas.")
+st.markdown("- Pois tanto para os acidêntes com e sem vítimas, nem os acidêntes com vítimas de diferentes gravidades, mostraram dados para sugerir o contrário.")
+st.markdown("- Assim com os dados que possuimos no momento, vemos que as condições não afetam o número de acidentes, nem a gravidade do acidênte.")
 st.markdown("Agora em relação ao uso de Machine Learning podemos visualizar:")
 st.markdown("""- A Data é um fator impactante no número de acidentes. Feriados Nacionais, Feriados Locais, Dias 'Emendados' Férias de Verão, Férias de Inverno, Eventos Periódicos, são alguns fatores que podem impactar""")
 st.markdown("Tanto o modelo de M.L. quanto o feito neste trabalho, possuem resultados semelhantes na atribuição de correlação das variáveis")
